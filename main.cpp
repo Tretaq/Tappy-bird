@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     RenderWindow window(VideoMode({500,300}), "Tappy-Bird!");//set res
     CircleShape shape(100.f);
-    shape.setFillColor(Color::Green);
+    shape.setFillColor(Color::Red);
     while (window.isOpen()) {
         while (const optional event = window.pollEvent()) {
             if (event->is<Event::Closed>()) {
