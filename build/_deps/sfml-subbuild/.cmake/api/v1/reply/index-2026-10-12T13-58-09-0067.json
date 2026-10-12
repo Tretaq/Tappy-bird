@@ -1,0 +1,108 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Unix Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "/home/treta/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake",
+			"cpack" : "/home/treta/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cpack",
+			"ctest" : "/home/treta/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/ctest",
+			"root" : "/home/treta/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-4.3"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 4,
+			"minor" : 3,
+			"patch" : 1,
+			"string" : "4.3.1",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+			"jsonFile" : "codemodel-v2-18aef478808f252a1158.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 10
+			}
+		},
+		{
+			"jsonFile" : "cache-v2-8cc896c5549f46a3da4c.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cmakeFiles-v1-68c2f44397818357336a.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		},
+		{
+			"jsonFile" : "toolchains-v1-dc0405e2c8bf8ae67eac.json",
+			"kind" : "toolchains",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		}
+	],
+	"reply" : 
+	{
+		"cache-v2" : 
+		{
+			"jsonFile" : "cache-v2-8cc896c5549f46a3da4c.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		"cmakeFiles-v1" : 
+		{
+			"jsonFile" : "cmakeFiles-v1-68c2f44397818357336a.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		},
+		"codemodel-v2" : 
+		{
+			"jsonFile" : "codemodel-v2-18aef478808f252a1158.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 10
+			}
+		},
+		"toolchains-v1" : 
+		{
+			"jsonFile" : "toolchains-v1-dc0405e2c8bf8ae67eac.json",
+			"kind" : "toolchains",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		}
+	}
+}

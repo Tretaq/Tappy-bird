@@ -80,3 +80,14 @@ events:
     message: |
       The system is: Linux - 7.2.9-arch1-1 - x86_64
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/treta/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:16 (project)"
+    message: |
+      The system is: Linux - 7.2.9-arch1-1 - x86_64
+...
