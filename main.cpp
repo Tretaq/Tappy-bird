@@ -15,25 +15,26 @@ class Bird {
     static constexpr float jumpStrength = -350.f;
     float velocityY = 0.f;
     RectangleShape shape;
+
   public:
-  void update( float delta) {
-    velocityY = velocityY + gravity * delta;
-    shape.move(Vector2f(0.f,velocityY * delta));
-  }
-  void jump() {
-    velocityY = -350.f;
-  }
-  void draw(RenderTarget& target) {
-    target.draw(shape);
-  }
-  FloatRect getBounds() {
-    shape.getGlobalBounds();
-  }
-  Bird() {
-    shape.setSize(Vector2f(40.f,40.f));
-    shape.setFillColor(Color::Red);
-    shape.setPosition(Vector2f(200.f,300.f));
-  }
+    void update( float delta) {
+      velocityY = velocityY + gravity * delta;
+      shape.move(Vector2f(0.f,velocityY * delta));
+    }
+    void jump() {
+      velocityY = jumpStrength;
+    }
+    void draw(RenderTarget& target) const {
+      target.draw(shape);
+    }
+    FloatRect getBounds()const {
+      return shape.getGlobalBounds();
+    }
+    Bird() {
+      shape.setSize(Vector2f(40.f,40.f));
+      shape.setFillColor(Color::Red);
+      shape.setPosition(Vector2f(200.f,300.f));
+    }
 
 };
 int main() {
@@ -41,25 +42,20 @@ int main() {
   window.setFramerateLimit(60);
   window.setKeyRepeatEnabled(false);
   float velocityY = 0.f;
+  Bird bird;
   const auto onClose =
       [&window](
           const Event::Closed &) { // function expects argument of EVENT CLOSE
         window.close();
       };
-  const auto onKeyPressed = [&window, &velocityY](const Event::KeyPressed &keyPressed) {
+  const auto onKeyPressed = [&window, &bird](const Event::KeyPressed &keyPressed) {
     if (keyPressed.scancode == Keyboard::Scancode::Escape)
       window.close();
     if (keyPressed.scancode == Keyboard::Scancode::Space) {
-      velocityY = -350.f;
+      bird.jump();
     }
   };
 
-  float posX = 200.f;
-  float posY = 400.f;
-
-  RectangleShape shape(Vector2f(40.f, 40.f));
-  shape.setFillColor(Color::Red);
-  shape.setPosition(Vector2f(posX, posY));
 
   Clock clock;
 
@@ -70,12 +66,11 @@ int main() {
     Time dt = clock.restart();
     float delta = dt.asSeconds();
 
-    velocityY = velocityY + (gravity * delta);
-    posY = posY + (velocityY * delta);
+    bird.update(delta);
 
-    shape.setPosition(Vector2f(posX, posY));
+
     window.clear();
-    window.draw(shape);
+    bird.draw(window);
     window.display();
   }
 }
