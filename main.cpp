@@ -1,5 +1,7 @@
 #include "SFML/System/Clock.hpp"
 #include "SFML/System/Time.hpp"
+#include "SFML/Window/Event.hpp"
+#include "SFML/Window/Keyboard.hpp"
 #include "SFML/Window/Window.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -27,13 +29,16 @@ int main() {
 
   Clock clock;
 
-  float gravity = 20.f;
-  float velocityY = 0.01f;
+  float gravity = 10.f;
+  float velocityY = 1.f;
   while (window.isOpen()) {
     window.handleEvents(onClose, onKeyPressed);
 
     Time dt = clock.restart();
     float delta = dt.asSeconds();
+    if (Keyboard::isKeyPressed(Keyboard::Key::Space)) {
+      velocityY = -300.f;
+    }
     velocityY = velocityY + gravity;
     posY = posY + (velocityY * delta);
 

@@ -189,10 +189,28 @@ CMakeFiles/Tappy_bird.dir/main.cpp.o: \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Time.hpp \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Time.inl \
  /usr/include/c++/16/cassert /usr/include/assert.h \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Event.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Joystick.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Export.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/String.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Utf.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Utf.inl \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/String.inl \
+ /usr/include/c++/16/iterator /usr/include/c++/16/bits/stream_iterator.h \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Keyboard.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Mouse.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector2.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Angle.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Angle.inl \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector2.inl \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Sensor.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector3.hpp \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector3.inl \
+ /usr/include/c++/16/variant \
+ /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Event.inl \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Window.hpp \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/ContextSettings.hpp \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/GlResource.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Export.hpp \
  /usr/include/c++/16/memory \
  /usr/include/c++/16/bits/stl_raw_storage_iter.h \
  /usr/include/c++/16/bits/shared_ptr_atomic.h \
@@ -207,25 +225,7 @@ CMakeFiles/Tappy_bird.dir/main.cpp.o: \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Vulkan.hpp \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/WindowEnums.hpp \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/WindowHandle.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector2.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Angle.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Angle.inl \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector2.inl \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/WindowBase.inl \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Event.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Joystick.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/String.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Utf.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Utf.inl \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/String.inl \
- /usr/include/c++/16/iterator /usr/include/c++/16/bits/stream_iterator.h \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Keyboard.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Mouse.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Sensor.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector3.hpp \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/System/Vector3.inl \
- /usr/include/c++/16/variant \
- /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Window/Event.inl \
  /usr/include/c++/16/utility /usr/include/c++/16/bits/stl_relops.h \
  /usr/include/c++/16/bits/intcmp.h \
  /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include/SFML/Graphics.hpp \
