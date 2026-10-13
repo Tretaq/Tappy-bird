@@ -12,6 +12,8 @@ FETCHCONTENT_DECLARE(SFML GIT_REPOSITORY https://github.com/SFML/SFML.git GIT_TA
 FETCHCONTENT_MAKEAVAILABLE(SFML)
 
 
-add_executable(Tappy_bird main.cpp)
+add_executable(Tappy_bird main.cpp
+        Bird.h
+        Bird.cpp)
 
 target_link_libraries(Tappy_bird PRIVATE SFML::Graphics)

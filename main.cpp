@@ -5,38 +5,12 @@
 #include "SFML/Window/Window.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Bird.h"
 using namespace sf;
 using namespace std;
-class Bird {
-  private:
 
 
-    static constexpr float gravity = 900.f;
-    static constexpr float jumpStrength = -350.f;
-    float velocityY = 0.f;
-    RectangleShape shape;
 
-  public:
-    void update( float delta) {
-      velocityY = velocityY + gravity * delta;
-      shape.move(Vector2f(0.f,velocityY * delta));
-    }
-    void jump() {
-      velocityY = jumpStrength;
-    }
-    void draw(RenderTarget& target) const {
-      target.draw(shape);
-    }
-    FloatRect getBounds()const {
-      return shape.getGlobalBounds();
-    }
-    Bird() {
-      shape.setSize(Vector2f(40.f,40.f));
-      shape.setFillColor(Color::Red);
-      shape.setPosition(Vector2f(200.f,300.f));
-    }
-
-};
 int main() {
   RenderWindow window(VideoMode({400, 600}), "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
