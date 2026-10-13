@@ -3,8 +3,8 @@ Tappy_bird: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o \
   CMakeFiles/Tappy_bird.dir/main.cpp.o \
-  _deps/sfml-build/lib/libsfml-graphics.a \
-  _deps/sfml-build/lib/libsfml-window.a \
+  _deps/sfml-build/lib/libsfml-graphics-s-d.a \
+  _deps/sfml-build/lib/libsfml-window-s-d.a \
   /usr/lib/libXrandr.so \
   /usr/lib/libXcursor.so \
   /usr/lib/libXrender.so \
@@ -12,7 +12,7 @@ Tappy_bird: \
   /usr/lib/libXi.so \
   /usr/lib/libXext.so \
   /usr/lib/libX11.so \
-  _deps/sfml-build/lib/libsfml-system.a \
+  _deps/sfml-build/lib/libsfml-system-s-d.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/librt.a \
   /usr/lib/libGL.so \
   /usr/lib/libudev.so \
@@ -78,9 +78,9 @@ Tappy_bird: \
 
 CMakeFiles/Tappy_bird.dir/main.cpp.o:
 
-_deps/sfml-build/lib/libsfml-graphics.a:
+_deps/sfml-build/lib/libsfml-graphics-s-d.a:
 
-_deps/sfml-build/lib/libsfml-window.a:
+_deps/sfml-build/lib/libsfml-window-s-d.a:
 
 /usr/lib/libXrandr.so:
 
@@ -96,7 +96,7 @@ _deps/sfml-build/lib/libsfml-window.a:
 
 /usr/lib/libX11.so:
 
-_deps/sfml-build/lib/libsfml-system.a:
+_deps/sfml-build/lib/libsfml-system-s-d.a:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/librt.a:
 

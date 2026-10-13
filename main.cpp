@@ -1,3 +1,6 @@
+#include "SFML/System/Clock.hpp"
+#include "SFML/System/Time.hpp"
+#include "SFML/Window/Window.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 using namespace sf;
@@ -6,23 +9,37 @@ using namespace std;
 int main() {
   RenderWindow window(VideoMode({400, 600}), "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
-  RectangleShape shape(Vector2f(200.f,111.f));
-  shape.setFillColor(Color::Red);
-  shape.setPosition(Vector2f(100.f,200.f));
-  const auto onClose = [&window] (const Event::Closed&) {// function expects argument of EVENT CLOSE
-    window.close();
-  };
-  const auto onKeyPressed = [&window](const Event::KeyPressed& keyPressed) {
+  const auto onClose =
+      [&window](
+          const Event::Closed &) { // function expects argument of EVENT CLOSE
+        window.close();
+      };
+  const auto onKeyPressed = [&window](const Event::KeyPressed &keyPressed) {
     if (keyPressed.scancode == Keyboard::Scancode::Escape)
       window.close();
   };
 
-  while (window.isOpen()) {
-    window.handleEvents(onClose,onKeyPressed);
+  float posX = 200.f;
+  float posY = 400.f;
+  RectangleShape shape(Vector2f(40.f, 40.f));
+  shape.setFillColor(Color::Red);
+  shape.setPosition(Vector2f(posX, posY));
 
+  Clock clock;
+
+  float gravity = 20.f;
+  float velocityY = 0.01f;
+  while (window.isOpen()) {
+    window.handleEvents(onClose, onKeyPressed);
+
+    Time dt = clock.restart();
+    float delta = dt.asSeconds();
+    velocityY = velocityY + gravity;
+    posY = posY + (velocityY * delta);
+
+    shape.setPosition(Vector2f(posX, posY));
     window.clear();
     window.draw(shape);
     window.display();
   }
-  // i dont know if the X works since linux dosnt know whats an X
 }
