@@ -15,5 +15,6 @@ class Pipe {
         void draw(sf::RenderTarget& target) const;
         void update(float delta);
         bool isOffScreen() const;
+        bool collidesWith(const sf::FloatRect &bounds) const;
         Pipe(float x, float gapTop);
 };

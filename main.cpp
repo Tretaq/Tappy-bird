@@ -23,7 +23,7 @@ int main() {
   RenderWindow window(VideoMode({windowWidth, windowHeight}), "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
   window.setKeyRepeatEnabled(false);
-   const float spawninterval = 2.f;
+   const float spawnInterval = 2.f;
   Bird bird;
   Clock clock;
 
@@ -58,10 +58,10 @@ int main() {
     float delta = dt.asSeconds();
 
     spawnTimer = spawnTimer + delta;
-    if (spawnTimer >= spawninterval) {  
+    if (spawnTimer >= spawnInterval) {
       int roll = dice(rng);
       pipes.push_back(Pipe(windowWidth,roll));
-      spawnTimer = spawnTimer - spawninterval;
+      spawnTimer = spawnTimer - spawnInterval;
     }
 
 
@@ -74,6 +74,12 @@ int main() {
       return p.isOffScreen();
     });
     window.clear();
+
+    for (const Pipe &pipe : pipes) {
+      if (pipe.collidesWith(bird.getBounds())) {
+        window.close();
+      }
+    }
 
     for (const Pipe &pipe : pipes) {
       pipe.draw(window);

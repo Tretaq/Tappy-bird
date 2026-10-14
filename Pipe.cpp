@@ -28,5 +28,8 @@ bool Pipe::isOffScreen() const {
     }else {
         return false;
     }
+}
 
+bool Pipe::collidesWith(const sf::FloatRect &bounds) const {
+    return topShape.getGlobalBounds().findIntersection(bounds).has_value() || botShape.getGlobalBounds().findIntersection(bounds).has_value();
 }
