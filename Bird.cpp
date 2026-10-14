@@ -17,7 +17,8 @@ sf::FloatRect Bird::getBounds()const {
 }
 
 bool Bird::isOutOfBounds(float windowHeight) const {
-    
+    sf::FloatRect bounds = shape.getGlobalBounds();
+    return bounds.position.y < 0.f || bounds.position.y + bounds.size.y > windowHeight;
 }
 
 Bird::Bird() {

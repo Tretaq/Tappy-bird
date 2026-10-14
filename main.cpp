@@ -79,6 +79,9 @@ int main() {
       if (pipe.collidesWith(bird.getBounds())) {
         gameOver = true;
       }
+      if (bird.isOutOfBounds(static_cast<float>(windowHeight))) {
+        gameOver = true;
+      }
     }
 
     for (const Pipe &pipe : pipes) {
