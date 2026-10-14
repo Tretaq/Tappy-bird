@@ -14,8 +14,13 @@ using namespace std;
 
 
 
+
 int main() {
-  RenderWindow window(VideoMode({800, 600}), "Tappy-Bird!"); // set res
+  const int windowWidth = 800;
+  const int windowHeight =  Pipe::windowHeight;
+  const int gapMargin = 100;
+
+  RenderWindow window(VideoMode({windowWidth, windowHeight}), "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
   window.setKeyRepeatEnabled(false);
    const float spawninterval = 2.f;
@@ -44,7 +49,7 @@ int main() {
 
   float spawnTimer = 0.f;
   mt19937 rng(random_device{}());
-  uniform_int_distribution<int> dice(100 , 350);
+  uniform_int_distribution<int> dice(gapMargin , windowHeight - gapMargin - Pipe::gap);
 
   while (window.isOpen()) {
     window.handleEvents(onClose, onKeyPressed);
@@ -52,10 +57,10 @@ int main() {
     Time dt = clock.restart();
     float delta = dt.asSeconds();
 
-    spawnTimer = spawnTimer + delta;`
-    if (spawnTimer >= spawninterval) {
+    spawnTimer = spawnTimer + delta;
+    if (spawnTimer >= spawninterval) {  
       int roll = dice(rng);
-      pipes.push_back(Pipe(800.f,roll));
+      pipes.push_back(Pipe(windowWidth,roll));
       spawnTimer = spawnTimer - spawninterval;
     }
 
