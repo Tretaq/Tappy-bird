@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Bird.h"
+#include "Pipe.h"
 using namespace sf;
 using namespace std;
 
@@ -17,6 +18,7 @@ int main() {
   window.setKeyRepeatEnabled(false);
   float velocityY = 0.f;
   Bird bird;
+  Pipe pipe(200,200);
   const auto onClose =
       [&window](
           const Event::Closed &) { // function expects argument of EVENT CLOSE
@@ -44,7 +46,9 @@ int main() {
 
 
     window.clear();
+    pipe.draw(window);
     bird.draw(window);
     window.display();
+    cout << window.getSize().x << " " << window.getSize().y << "\n";
   }
 }

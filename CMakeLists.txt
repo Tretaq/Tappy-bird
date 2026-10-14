@@ -14,6 +14,9 @@ FETCHCONTENT_MAKEAVAILABLE(SFML)
 
 add_executable(Tappy_bird main.cpp
         Bird.h
-        Bird.cpp)
+        Bird.cpp
+        Pipe.h
+        Pipe.cpp
+)
 
 target_link_libraries(Tappy_bird PRIVATE SFML::Graphics)
