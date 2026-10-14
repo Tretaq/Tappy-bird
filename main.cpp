@@ -58,39 +58,38 @@ int main() {
     float delta = dt.asSeconds();
 
     spawnTimer = spawnTimer + delta;
-    if (spawnTimer >= spawnInterval) {
+    if (spawnTimer >= spawnInterval) { // roll mechanic
       int roll = dice(rng);
       pipes.push_back(Pipe(windowWidth,roll));
       spawnTimer = spawnTimer - spawnInterval;
     }
 
+  if (!gameOver) {
+      bird.update(delta);
 
-    bird.update(delta);
-
-    for (Pipe &pipe : pipes) {
-      pipe.update(delta);
-    }
-    erase_if(pipes, [](const Pipe &p) {
-      return p.isOffScreen();
-    });
-    window.clear();
-
-    for (const Pipe &pipe : pipes) {
-      if (pipe.collidesWith(bird.getBounds())) {
-        gameOver = true;
+      for (Pipe &pipe : pipes) {
+        pipe.update(delta);
       }
-      if (bird.isOutOfBounds(static_cast<float>(windowHeight))) {
-        gameOver = true;
+      erase_if(pipes, [](const Pipe &p) {
+        return p.isOffScreen();
+      });
+      window.clear();
+
+      for (const Pipe &pipe : pipes) {
+        if (pipe.collidesWith(bird.getBounds())) {
+          gameOver = true;
+        }
+        if (bird.isOutOfBounds(static_cast<float>(windowHeight))) {
+          gameOver = true;
+        }
       }
+
+      for (const Pipe &pipe : pipes) {
+        pipe.draw(window);
+      }
+      bird.draw(window);
+
+      window.display();
     }
-
-    for (const Pipe &pipe : pipes) {
-      pipe.draw(window);
-    }
-
-
-
-    bird.draw(window);
-    window.display();
   }
 }
