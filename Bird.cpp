@@ -15,6 +15,11 @@ void Bird::update( float delta) {
 sf::FloatRect Bird::getBounds()const {
     return shape.getGlobalBounds();
 }
+
+bool Bird::isOutOfBounds(float windowHeight) const {
+    
+}
+
 Bird::Bird() {
     shape.setSize(sf::Vector2f(40.f,40.f));
     shape.setFillColor(sf::Color::Red);

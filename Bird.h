@@ -15,6 +15,7 @@ public:
     void jump();
     void draw(sf::RenderTarget& target) const;
     sf::FloatRect getBounds()const;
+    bool isOutOfBounds(float windowHeight) const;
     Bird();
 };
 

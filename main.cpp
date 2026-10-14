@@ -19,7 +19,7 @@ int main() {
   const int windowWidth = 800;
   const int windowHeight =  Pipe::windowHeight;
   const int gapMargin = 100;
-
+  bool gameOver = false;
   RenderWindow window(VideoMode({windowWidth, windowHeight}), "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
   window.setKeyRepeatEnabled(false);
@@ -77,7 +77,7 @@ int main() {
 
     for (const Pipe &pipe : pipes) {
       if (pipe.collidesWith(bird.getBounds())) {
-        window.close();
+        gameOver = true;
       }
     }
 
