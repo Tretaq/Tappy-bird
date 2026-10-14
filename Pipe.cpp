@@ -21,3 +21,12 @@ void Pipe::draw(sf::RenderTarget &target) const {
     target.draw(topShape);
     target.draw(botShape);
 }
+
+bool Pipe::isOffScreen() const {
+    if (topShape.getPosition().x < -60.f) {
+        return true;
+    }else {
+        return false;
+    }
+
+}

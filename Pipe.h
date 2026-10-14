@@ -13,7 +13,6 @@ class Pipe {
     public:
         void draw(sf::RenderTarget& target) const;
         void update(float delta);
+        bool isOffScreen() const;
         Pipe(float x, float gapTop);
-
-
 };

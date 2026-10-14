@@ -5,6 +5,8 @@
 #include "SFML/Window/Window.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <random>
+#include <vector>
 #include "Bird.h"
 #include "Pipe.h"
 using namespace sf;
@@ -13,12 +15,19 @@ using namespace std;
 
 
 int main() {
-  RenderWindow window(VideoMode({400, 600}), "Tappy-Bird!"); // set res
+  RenderWindow window(VideoMode({800, 600}), "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
   window.setKeyRepeatEnabled(false);
-  float velocityY = 0.f;
+   const float spawninterval = 2.f;
   Bird bird;
-  Pipe pipe(400,200);
+  Clock clock;
+
+  vector<Pipe> pipes;
+
+
+
+
+
   const auto onClose =
       [&window](
           const Event::Closed &) { // function expects argument of EVENT CLOSE
@@ -33,8 +42,9 @@ int main() {
   };
 
 
-  Clock clock;
-
+  float spawnTimer = 0.f;
+  mt19937 rng(random_device{}());
+  uniform_int_distribution<int> dice(100 , 350);
 
   while (window.isOpen()) {
     window.handleEvents(onClose, onKeyPressed);
@@ -42,13 +52,31 @@ int main() {
     Time dt = clock.restart();
     float delta = dt.asSeconds();
 
-    bird.update(delta);
-    pipe.update(delta);
+    spawnTimer = spawnTimer + delta;`
+    if (spawnTimer >= spawninterval) {
+      int roll = dice(rng);
+      pipes.push_back(Pipe(800.f,roll));
+      spawnTimer = spawnTimer - spawninterval;
+    }
 
+
+    bird.update(delta);
+
+    for (Pipe &pipe : pipes) {
+      pipe.update(delta);
+    }
+    erase_if(pipes, [](const Pipe &p) {
+      return p.isOffScreen();
+    });
     window.clear();
-    pipe.draw(window);
+
+    for (const Pipe &pipe : pipes) {
+      pipe.draw(window);
+    }
+
+
+
     bird.draw(window);
     window.display();
-    cout << window.getSize().x << " " << window.getSize().y << "\n";
   }
 }
