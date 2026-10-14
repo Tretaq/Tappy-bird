@@ -18,7 +18,7 @@ int main() {
   window.setKeyRepeatEnabled(false);
   float velocityY = 0.f;
   Bird bird;
-  Pipe pipe(200,200);
+  Pipe pipe(400,200);
   const auto onClose =
       [&window](
           const Event::Closed &) { // function expects argument of EVENT CLOSE
@@ -43,7 +43,7 @@ int main() {
     float delta = dt.asSeconds();
 
     bird.update(delta);
-
+    pipe.update(delta);
 
     window.clear();
     pipe.draw(window);

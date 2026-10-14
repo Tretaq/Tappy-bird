@@ -2,6 +2,8 @@
 #include "SFML/Window/Event.hpp"
 #include <SFML/Graphics.hpp>
 
+#include "SFML/Audio/Listener.hpp"
+
 
 Pipe::Pipe(float x, float gapTop) {
     topShape.setSize(sf::Vector2f(width,gapTop));
@@ -11,7 +13,10 @@ Pipe::Pipe(float x, float gapTop) {
     topShape.setFillColor(sf::Color::Green);
     botShape.setFillColor(sf::Color::Green);
 }
-
+void Pipe::update(float delta) {
+    topShape.move(sf::Vector2f(-speed * delta, 0.f));
+    botShape.move(sf::Vector2f(-speed * delta, 0.f));
+}
 void Pipe::draw(sf::RenderTarget &target) const {
     target.draw(topShape);
     target.draw(botShape);
