@@ -9,6 +9,7 @@ class Pipe {
         static constexpr float speed = 150.f;
         sf::RectangleShape topShape;
         sf::RectangleShape botShape;
+        bool scored = false;
     public:
         static constexpr float windowHeight = 600.f;
         static constexpr float gap = 150.f;

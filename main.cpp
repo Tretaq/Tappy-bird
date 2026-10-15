@@ -12,9 +12,6 @@
 using namespace sf;
 using namespace std;
 
-
-
-
 int main() {
   const int windowWidth = 800;
   const int windowHeight =  Pipe::windowHeight;
@@ -56,7 +53,7 @@ int main() {
 
     Time dt = clock.restart();
     float delta = dt.asSeconds();
-
+    if (!gameOver) {
     spawnTimer = spawnTimer + delta;
     if (spawnTimer >= spawnInterval) { // roll mechanic
       int roll = dice(rng);
@@ -64,7 +61,7 @@ int main() {
       spawnTimer = spawnTimer - spawnInterval;
     }
 
-  if (!gameOver) {
+
       bird.update(delta);
 
       for (Pipe &pipe : pipes) {
@@ -73,23 +70,25 @@ int main() {
       erase_if(pipes, [](const Pipe &p) {
         return p.isOffScreen();
       });
-      window.clear();
+
 
       for (const Pipe &pipe : pipes) {
         if (pipe.collidesWith(bird.getBounds())) {
           gameOver = true;
         }
-        if (bird.isOutOfBounds(static_cast<float>(windowHeight))) {
-          gameOver = true;
-        }
-      }
 
+      }
+      if (bird.isOutOfBounds(static_cast<float>(windowHeight))) {
+        gameOver = true;
+      }
+    }
+      window.clear();
       for (const Pipe &pipe : pipes) {
         pipe.draw(window);
       }
       bird.draw(window);
 
       window.display();
-    }
+
   }
 }
