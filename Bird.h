@@ -9,6 +9,8 @@ private:
     static constexpr float jumpStrength = -350.f;
     float velocityY = 0.f;
     sf::RectangleShape shape;
+    sf::Vector2f position = {200.f, 300.f};
+
 
 public:
     void update( float delta);
@@ -16,6 +18,7 @@ public:
     void draw(sf::RenderTarget& target) const;
     sf::FloatRect getBounds()const;
     bool isOutOfBounds(float windowHeight) const;
+    void reset();
     Bird();
 };
 

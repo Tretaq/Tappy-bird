@@ -3,8 +3,6 @@
 #include "SFML/Window/Event.hpp"
 #include <SFML/Graphics.hpp>
 
-#include "SFML/Audio/Listener.hpp"
-
 Pipe::Pipe(float x, float gapTop) {
   topShape.setSize(sf::Vector2f(width, gapTop));
   topShape.setPosition(sf::Vector2f(x, 0));
@@ -34,7 +32,7 @@ void Pipe::markScored() {
   return;
 }
 bool Pipe::isPassed(float birdx) {
-  if (birdx > Pipe::topShape.getPosition().x && Pipe::scored == false) {
+  if (birdx > Pipe::topShape.getPosition().x + width && Pipe::scored == false) {
     Pipe::markScored();
     return true;
   }

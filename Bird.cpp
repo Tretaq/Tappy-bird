@@ -21,8 +21,13 @@ bool Bird::isOutOfBounds(float windowHeight) const {
     return bounds.position.y < 0.f || bounds.position.y + bounds.size.y > windowHeight;
 }
 
+void Bird::reset() {
+    shape.setPosition(position);
+    velocityY = 0;
+}
+
 Bird::Bird() {
     shape.setSize(sf::Vector2f(40.f,40.f));
     shape.setFillColor(sf::Color::Red);
-    shape.setPosition(sf::Vector2f(200.f,300.f));
+    shape.setPosition(position);
 }
