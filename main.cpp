@@ -1,5 +1,6 @@
 #include "Bird.h"
 #include "Pipe.h"
+#include "SFML/Graphics/Text.hpp"
 #include "SFML/System/Clock.hpp"
 #include "SFML/System/Time.hpp"
 #include "SFML/Window/Event.hpp"
@@ -8,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <random>
+#include <string>
 #include <vector>
 using namespace sf;
 using namespace std;
@@ -17,6 +19,12 @@ int main() {
   const int windowHeight = Pipe::windowHeight;
   const int gapMargin = 100;
   bool gameOver = false;
+  Font font("static/Inter_24pt-Black.ttf");
+  Text text(font);
+  text.setString("0");
+  text.setCharacterSize(24);
+  text.setFillColor(Color::White);
+
   RenderWindow window(VideoMode({windowWidth, windowHeight}),
                       "Tappy-Bird!"); // set res
   window.setFramerateLimit(60);
@@ -80,12 +88,13 @@ int main() {
         gameOver = true;
       }
     }
+    text.setString(to_string(score));
     window.clear();
     for (const Pipe &pipe : pipes) {
       pipe.draw(window);
     }
     bird.draw(window);
-
+    window.draw(text);
     window.display();
   }
 }
