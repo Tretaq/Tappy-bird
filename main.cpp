@@ -76,7 +76,7 @@ int main() {
           score++;
         }
       }
-      cout << score << "\n";
+
       erase_if(pipes, [](const Pipe &p) { return p.isOffScreen(); });
 
       for (const Pipe &pipe : pipes) {
