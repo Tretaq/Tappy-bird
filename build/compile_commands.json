@@ -6,6 +6,18 @@
   "output": "CMakeFiles/Tappy_bird.dir/main.cpp.o"
 },
 {
+  "directory": "/home/treta/backend/projects/Tappy-bird/build",
+  "command": "/usr/bin/c++ -DSFML_STATIC -I/home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles/Tappy_bird.dir/Bird.cpp.o -c /home/treta/backend/projects/Tappy-bird/Bird.cpp",
+  "file": "/home/treta/backend/projects/Tappy-bird/Bird.cpp",
+  "output": "CMakeFiles/Tappy_bird.dir/Bird.cpp.o"
+},
+{
+  "directory": "/home/treta/backend/projects/Tappy-bird/build",
+  "command": "/usr/bin/c++ -DSFML_STATIC -I/home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles/Tappy_bird.dir/Pipe.cpp.o -c /home/treta/backend/projects/Tappy-bird/Pipe.cpp",
+  "file": "/home/treta/backend/projects/Tappy-bird/Pipe.cpp",
+  "output": "CMakeFiles/Tappy_bird.dir/Pipe.cpp.o"
+},
+{
   "directory": "/home/treta/backend/projects/Tappy-bird/build/_deps/sfml-build/src/SFML/System",
   "command": "/usr/bin/c++ -DSFML_STATIC -I/home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/include -I/home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/src -g -std=gnu++20 -fvisibility=hidden -fvisibility-inlines-hidden -fdiagnostics-color=always -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wimplicit-fallthrough -Wsuggest-override -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches -o CMakeFiles/sfml-system.dir/Clock.cpp.o -c /home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/src/SFML/System/Clock.cpp",
   "file": "/home/treta/backend/projects/Tappy-bird/build/_deps/sfml-src/src/SFML/System/Clock.cpp",

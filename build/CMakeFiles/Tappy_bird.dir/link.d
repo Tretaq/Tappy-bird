@@ -3,6 +3,8 @@ Tappy_bird: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o \
   CMakeFiles/Tappy_bird.dir/main.cpp.o \
+  CMakeFiles/Tappy_bird.dir/Bird.cpp.o \
+  CMakeFiles/Tappy_bird.dir/Pipe.cpp.o \
   _deps/sfml-build/lib/libsfml-graphics-s-d.a \
   _deps/sfml-build/lib/libsfml-window-s-d.a \
   /usr/lib/libXrandr.so \
@@ -77,6 +79,10 @@ Tappy_bird: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o:
 
 CMakeFiles/Tappy_bird.dir/main.cpp.o:
+
+CMakeFiles/Tappy_bird.dir/Bird.cpp.o:
+
+CMakeFiles/Tappy_bird.dir/Pipe.cpp.o:
 
 _deps/sfml-build/lib/libsfml-graphics-s-d.a:
 

@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/treta/backend/projects/Tappy-bird/Bird.cpp" "CMakeFiles/Tappy_bird.dir/Bird.cpp.o" "gcc" "CMakeFiles/Tappy_bird.dir/Bird.cpp.o.d"
+  "/home/treta/backend/projects/Tappy-bird/Pipe.cpp" "CMakeFiles/Tappy_bird.dir/Pipe.cpp.o" "gcc" "CMakeFiles/Tappy_bird.dir/Pipe.cpp.o.d"
   "/home/treta/backend/projects/Tappy-bird/main.cpp" "CMakeFiles/Tappy_bird.dir/main.cpp.o" "gcc" "CMakeFiles/Tappy_bird.dir/main.cpp.o.d"
   "" "Tappy_bird" "gcc" "CMakeFiles/Tappy_bird.dir/link.d"
   )

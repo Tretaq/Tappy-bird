@@ -239,6 +239,54 @@ sfml-audio/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make _deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
 .PHONY : sfml-audio/fast
 
+Bird.o: Bird.cpp.o
+.PHONY : Bird.o
+
+# target to build an object file
+Bird.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tappy_bird.dir/build.make CMakeFiles/Tappy_bird.dir/Bird.cpp.o
+.PHONY : Bird.cpp.o
+
+Bird.i: Bird.cpp.i
+.PHONY : Bird.i
+
+# target to preprocess a source file
+Bird.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tappy_bird.dir/build.make CMakeFiles/Tappy_bird.dir/Bird.cpp.i
+.PHONY : Bird.cpp.i
+
+Bird.s: Bird.cpp.s
+.PHONY : Bird.s
+
+# target to generate assembly for a file
+Bird.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tappy_bird.dir/build.make CMakeFiles/Tappy_bird.dir/Bird.cpp.s
+.PHONY : Bird.cpp.s
+
+Pipe.o: Pipe.cpp.o
+.PHONY : Pipe.o
+
+# target to build an object file
+Pipe.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tappy_bird.dir/build.make CMakeFiles/Tappy_bird.dir/Pipe.cpp.o
+.PHONY : Pipe.cpp.o
+
+Pipe.i: Pipe.cpp.i
+.PHONY : Pipe.i
+
+# target to preprocess a source file
+Pipe.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tappy_bird.dir/build.make CMakeFiles/Tappy_bird.dir/Pipe.cpp.i
+.PHONY : Pipe.cpp.i
+
+Pipe.s: Pipe.cpp.s
+.PHONY : Pipe.s
+
+# target to generate assembly for a file
+Pipe.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tappy_bird.dir/build.make CMakeFiles/Tappy_bird.dir/Pipe.cpp.s
+.PHONY : Pipe.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -281,6 +329,12 @@ help:
 	@echo "... sfml-network"
 	@echo "... sfml-system"
 	@echo "... sfml-window"
+	@echo "... Bird.o"
+	@echo "... Bird.i"
+	@echo "... Bird.s"
+	@echo "... Pipe.o"
+	@echo "... Pipe.i"
+	@echo "... Pipe.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
