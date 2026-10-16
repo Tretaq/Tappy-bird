@@ -114,6 +114,9 @@ int main() {
       pipe.draw(window);
     }
     if (state == State::GameOver) {
+      sf::FloatRect textBounds = pressSpaceText.getLocalBounds();
+      pressSpaceText.setOrigin({textBounds.position.x + textBounds.size.x / 2.0f, textBounds.position.y + textBounds.size.y / 2.0f});
+      pressSpaceText.setPosition({window.getSize().x / 2.0f, window.getSize().y / 2.0f});
       window.draw(pressSpaceText);
     }
     bird.draw(window);
