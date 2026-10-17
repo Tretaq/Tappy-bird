@@ -31,6 +31,8 @@ int main() {
   pressSpaceText.setPosition(sf::Vector2f(270.f,450.f));
   pressSpaceText.setFillColor(sf::Color::White);
   pressSpaceText.setString("Press space to restart!");
+  sf::Texture birdTextur("assets/bird_frame_1.png");
+  birdTextur.setSmooth(false);
 
   sf::RenderWindow window(sf::VideoMode({windowWidth, windowHeight}),
                           "Tappy-Bird!"); // set res
@@ -38,7 +40,7 @@ int main() {
   window.setKeyRepeatEnabled(false);
   const float spawnInterval = 2.f;
   int score = 0;
-  Bird bird;
+  Bird bird(birdTextur);
   sf::Clock clock;
 
   std::vector<Pipe> pipes;
