@@ -13,7 +13,7 @@
 #include <vector>
 #include <X11/Xproto.h>
 
-
+// TO DO y is wrong and need to do smae indent for it
 enum class State { Waiting, Playing, GameOver };
 int main() {
   const int windowWidth = 800;
@@ -32,7 +32,9 @@ int main() {
   pressSpaceText.setFillColor(sf::Color::White);
   pressSpaceText.setString("Press space to restart!");
   sf::Texture birdTextur("assets/bird_frame_1.png");
+  sf::Texture pipeTexture("assets/pipe_60x500.png");
   birdTextur.setSmooth(false);
+  pipeTexture.setSmooth(false);
 
   sf::RenderWindow window(sf::VideoMode({windowWidth, windowHeight}),
                           "Tappy-Bird!"); // set res
@@ -84,7 +86,7 @@ int main() {
       spawnTimer = spawnTimer + delta;
       if (spawnTimer >= spawnInterval) { // roll mechanic
         int roll = dice(rng);
-        pipes.push_back(Pipe(windowWidth, roll));
+        pipes.push_back(Pipe(windowWidth, roll,pipeTexture));
         spawnTimer = spawnTimer - spawnInterval;
       }
 
