@@ -53,7 +53,7 @@ int main() {
     bird_vector.push_back((std::move(tex)));
   }
   State state = State::Waiting;
-  sf::Font font("static/Inter_24pt-Black.ttf");
+  sf::Font font("static/PixelifySans-Medium.ttf");
   sf::Text points(font);
   points.setString("0");
   points.setCharacterSize(24);
