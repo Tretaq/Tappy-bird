@@ -18,4 +18,17 @@ A Flappy Bird clone in C++20 with SFML 3.
 **Esc**: quit 
 
 ## Requirements 
-C++20 Compiler(GCC 12+ or similar)
+- C++20 Compiler(GCC 12+ or similar)
+- CMake 3.x
+- SFML 3
+- Tested on the best linux distro **Arch**
+## Build and run 
+```bash
+    git clone https://github.com/Tretaq/Tappy-bird
+    cd Tappy-bird
+    cmake -B build 
+    cmake --build build
+    ./build/Tappy_bird
+```
+## Project meme 
+![img_1.png](img_1.png)

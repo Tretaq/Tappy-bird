@@ -19,4 +19,4 @@ add_executable(Tappy_bird main.cpp
         Pipe.cpp
 )
 
-target_link_libraries(Tappy_bird PRIVATE SFML::Graphics)
+target_link_libraries(Tappy_bird PRIVATE SFML::Graphics SFML::Audio)

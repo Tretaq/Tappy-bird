@@ -16,6 +16,9 @@
 #include <sys/stat.h>
 #include <X11/Xproto.h>
 
+#include "SFML/Audio/Sound.hpp"
+#include "SFML/Audio/SoundBuffer.hpp"
+
 enum class State { Waiting, Playing, GameOver };
 
 int loadNumber(const std::string& path) {
@@ -52,6 +55,13 @@ int main() {
     tex.setSmooth(false);
     bird_vector.push_back((std::move(tex)));
   }
+  sf::SoundBuffer buffer;
+  if (!buffer.loadFromFile("static/lumora_studios-pixel-jump-319167.mp3")) {
+    std::cerr << "Failed to load sound\n";
+    return -1;
+  }
+  sf::Sound jumpSound(buffer);
+
   State state = State::Waiting;
   sf::Font font("static/PixelifySans-Medium.ttf");
   sf::Text points(font);
@@ -106,13 +116,14 @@ int main() {
         window.close();
       };
   const auto onKeyPressed = [&window,
-                             &bird,&state,&pipes,&score,&spawnTimer](const sf::Event::KeyPressed &keyPressed) {
+                             &bird,&state,&pipes,&score,&spawnTimer,&jumpSound](const sf::Event::KeyPressed &keyPressed) {
     if (keyPressed.scancode == sf::Keyboard::Scancode::Escape)
       window.close();
     if (keyPressed.scancode == sf::Keyboard::Scancode::Space) {
       if (state == State::Waiting) {
         state = State::Playing;
         bird.jump();
+        jumpSound.play();
       }else if (state == State::GameOver) {
         pipes.clear();
         score = 0;
@@ -121,6 +132,7 @@ int main() {
         state = State::Waiting;
       }else {
         bird.jump();
+        jumpSound.play();
       }
     }
   };
