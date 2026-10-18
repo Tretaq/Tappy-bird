@@ -33,8 +33,13 @@ int main() {
   pressSpaceText.setString("Press space to restart!");
   sf::Texture birdTextur("assets/bird_frame_1.png");
   sf::Texture pipeTexture("assets/pipe_60x500.png");
+  sf::Texture background_texture("assets/background_1600x600_scrolling.png");
+  background_texture.setRepeated(true);
+  background_texture.setSmooth(false);
   birdTextur.setSmooth(false);
   pipeTexture.setSmooth(false);
+  sf::Sprite background(background_texture);
+
 
   sf::RenderWindow window(sf::VideoMode({windowWidth, windowHeight}),
                           "Tappy-Bird!"); // set res
@@ -46,6 +51,9 @@ int main() {
   sf::Clock clock;
 
   std::vector<Pipe> pipes;
+  float bgOffset = 0.f;
+  const float bgSpeed = 30.f;
+  background.setTextureRect(sf::IntRect({0,0},{windowWidth,windowHeight}));
   float spawnTimer = 0.f;
   std::mt19937 rng(std::random_device{}());
   std::uniform_int_distribution<int> dice(gapMargin,
@@ -92,6 +100,9 @@ int main() {
 
       bird.update(delta);
 
+      bgOffset += bgSpeed * delta;
+      bgOffset = std::fmod(bgOffset, static_cast<float>(background_texture.getSize().x));
+
       for (Pipe &pipe : pipes) {
         pipe.update(delta);
         if (pipe.isPassed(bird.getBounds().position.x)) {
@@ -112,8 +123,9 @@ int main() {
     }
 
     points.setString(std::to_string(score));
+    background.setTextureRect((sf::IntRect({static_cast<int>(bgOffset),0},{windowWidth,windowHeight})));
     window.clear();
-
+    window.draw(background);
     for (const Pipe &pipe : pipes) {
       pipe.draw(window);
     }

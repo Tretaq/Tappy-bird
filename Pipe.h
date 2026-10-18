@@ -6,9 +6,11 @@ private:
   static constexpr float width = 60.f;
   static constexpr float speed = 150.f;
   static constexpr float hitboxInset = 10.f;
+  static constexpr float hitboxYInset = 5.f;
   sf::RectangleShape topShape;
   sf::RectangleShape botShape;
   bool scored = false;
+
 
 
 public:

@@ -5,9 +5,9 @@
 
 Pipe::Pipe(float x, float gapTop , const sf::Texture& texture): topSprite(texture),botSprite(texture) {
   topShape.setSize(sf::Vector2f(width - 2 * hitboxInset , gapTop));
-  topShape.setPosition(sf::Vector2f(x+ hitboxInset, 0));
+  topShape.setPosition(sf::Vector2f(x+ hitboxInset, 0 - hitboxYInset));
   botShape.setSize(sf::Vector2f(width - 2 * hitboxInset, windowHeight - gapTop - gap));
-  botShape.setPosition(sf::Vector2f(x + hitboxInset, gapTop + gap));
+  botShape.setPosition(sf::Vector2f(x + hitboxInset, gapTop + gap + hitboxYInset));
   topShape.setFillColor(sf::Color::Green);
   botShape.setFillColor(sf::Color::Green);
   int texW = texture.getSize().x;
@@ -22,10 +22,8 @@ Pipe::Pipe(float x, float gapTop , const sf::Texture& texture): topSprite(textur
 void Pipe::update(float delta) {
   topShape.move(sf::Vector2f(-speed * delta, 0.f));
   botShape.move(sf::Vector2f(-speed * delta, 0.f));
-  topSprite.setPosition(topShape.getPosition());
-  botSprite.setPosition(botShape.getPosition());
-  topSprite.setPosition({topShape.getPosition().x - hitboxInset, topShape.getPosition().y});
-  botSprite.setPosition({botShape.getPosition() .x - hitboxInset, botShape.getPosition().y});
+  topSprite.setPosition({topShape.getPosition().x - hitboxInset, topShape.getPosition().y + hitboxYInset});
+  botSprite.setPosition({botShape.getPosition() .x - hitboxInset, botShape.getPosition().y - hitboxYInset});
 }
 void Pipe::draw(sf::RenderTarget &target) const {
   target.draw(topSprite);
@@ -33,7 +31,7 @@ void Pipe::draw(sf::RenderTarget &target) const {
 }
 
 bool Pipe::isOffScreen() const {
-  if (topShape.getPosition().x < -60.f) {
+  if (topShape.getPosition().x < -width) {
     return true;
   } else {
     return false;
@@ -44,7 +42,7 @@ void Pipe::markScored() {
   return;
 }
 bool Pipe::isPassed(float birdx) {
-  if (birdx > Pipe::topShape.getPosition().x + width && Pipe::scored == false) {
+  if (birdx > Pipe::topShape.getPosition().x + topShape.getSize().x && Pipe::scored == false) {
     Pipe::markScored();
     return true;
   }
