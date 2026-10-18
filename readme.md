@@ -21,6 +21,7 @@ A Flappy Bird clone in C++20 with SFML 3.
 - C++20 Compiler(GCC 12+ or similar)
 - CMake 3.x
 - SFML 3
+- OpenAL installed
 - Tested on the best linux distro **Arch**
 ## Build and run 
 ```bash

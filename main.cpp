@@ -88,6 +88,7 @@ int main() {
   birdTextur.setSmooth(false);
   pipeTexture.setSmooth(false);
   sf::Sprite background(background_texture);
+  jumpSound.setVolume(15.f);
 
 
   sf::RenderWindow window(sf::VideoMode({windowWidth, windowHeight}),
