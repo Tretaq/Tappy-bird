@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include "Bird.h"
 #include "Pipe.h"
 #include "SFML/Graphics/Text.hpp"
@@ -11,13 +13,35 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <sys/stat.h>
 #include <X11/Xproto.h>
 
 enum class State { Waiting, Playing, GameOver };
+
+int loadNumber(const std::string& path) {
+  std::ifstream file(path);
+  if (!file.is_open()) {
+    return 0;
+  }
+  int value = 0;
+  file >> value;
+  if (file.fail()) {
+    return 0;
+  }
+  return value;
+}
+void saveNumber(const std::string& path, int value) {
+  std::ofstream file(path);
+  if (!file.is_open()) {
+    return;
+  }
+  file << value;
+}
 int main() {
   const int windowWidth = 800;
   const int windowHeight = Pipe::windowHeight;
   const int gapMargin = 100;
+  int best = loadNumber("highscore.txt");
   std::vector<sf::Texture> bird_vector;
   bird_vector.reserve(3);
   for (int i = 1; i <= 3  ; ++i) {
@@ -40,6 +64,12 @@ int main() {
   pressSpaceText.setPosition(sf::Vector2f(270.f,450.f));
   pressSpaceText.setFillColor(sf::Color::White);
   pressSpaceText.setString("Press space to restart!");
+  sf::Text highest_points(font);
+  highest_points.setString("Your highest score is "+ std::to_string(best));
+  highest_points.setCharacterSize(24);
+  highest_points.setPosition(sf::Vector2f(270.f,450.f));
+  highest_points.setFillColor(sf::Color::White);
+
   sf::Texture birdTextur("assets/bird_frame_1.png");
   sf::Texture pipeTexture("assets/pipe_60x500.png");
   sf::Texture background_texture("assets/background_1600x600_scrolling.png");
@@ -98,7 +128,7 @@ int main() {
 
   while (window.isOpen()) {
     window.handleEvents(onClose, onKeyPressed);
-
+    State previous = state;
     sf::Time dt = clock.restart();
     float delta = dt.asSeconds();
     if (state == State::Playing) {
@@ -138,13 +168,23 @@ int main() {
 
     points.setString(std::to_string(score));
     background.setTextureRect((sf::IntRect({static_cast<int>(bgOffset),0},{windowWidth,windowHeight})));
-
+    if (previous == State::Playing && state == State::GameOver) {
+      if (score > best) {
+        best = score;
+        saveNumber("highscore.txt",best);
+      }
+    }
     window.clear();
     window.draw(background);
     for (const Pipe &pipe : pipes) {
       pipe.draw(window);
     }
+    if (state == State::Waiting) {
+      highest_points.setPosition({window.getSize().x / 2.0f, window.getSize().y / 2.0f});
+      window.draw(highest_points);
+    }
     if (state == State::GameOver) {
+      best = loadNumber("highscore.txt");
       sf::FloatRect textBounds = pressSpaceText.getLocalBounds();
       pressSpaceText.setOrigin({textBounds.position.x + textBounds.size.x / 2.0f, textBounds.position.y + textBounds.size.y / 2.0f});
       pressSpaceText.setPosition({window.getSize().x / 2.0f, window.getSize().y / 2.0f});
