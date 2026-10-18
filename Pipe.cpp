@@ -4,10 +4,11 @@
 #include <SFML/Graphics.hpp>
 
 Pipe::Pipe(float x, float gapTop , const sf::Texture& texture): topSprite(texture),botSprite(texture) {
-  topShape.setSize(sf::Vector2f(width - 2 * hitboxInset , gapTop));
-  topShape.setPosition(sf::Vector2f(x+ hitboxInset, 0 - hitboxYInset));
-  botShape.setSize(sf::Vector2f(width - 2 * hitboxInset, windowHeight - gapTop - gap));
+  topShape.setSize({width -2 * hitboxInset, gapTop - hitboxYInset});
+  topShape.setPosition(sf::Vector2f(x+ hitboxInset, 0.f));
+  botShape.setSize(sf::Vector2f(width - 2 * hitboxInset, windowHeight - gapTop - gap - hitboxYInset));
   botShape.setPosition(sf::Vector2f(x + hitboxInset, gapTop + gap + hitboxYInset));
+
   topShape.setFillColor(sf::Color::Green);
   botShape.setFillColor(sf::Color::Green);
   int texW = texture.getSize().x;
@@ -22,9 +23,17 @@ Pipe::Pipe(float x, float gapTop , const sf::Texture& texture): topSprite(textur
 void Pipe::update(float delta) {
   topShape.move(sf::Vector2f(-speed * delta, 0.f));
   botShape.move(sf::Vector2f(-speed * delta, 0.f));
-  topSprite.setPosition({topShape.getPosition().x - hitboxInset, topShape.getPosition().y + hitboxYInset});
+  topSprite.setPosition({topShape.getPosition().x - hitboxInset, 0.f});
   botSprite.setPosition({botShape.getPosition() .x - hitboxInset, botShape.getPosition().y - hitboxYInset});
+  syncSprite();
 }
+
+void Pipe::syncSprite() {
+    float x = topShape.getPosition().x - hitboxInset;
+  topSprite.setPosition({x,0.f});
+  botSprite.setPosition({x,botShape.getPosition().y - hitboxYInset});
+}
+
 void Pipe::draw(sf::RenderTarget &target) const {
   target.draw(topSprite);
   target.draw(botSprite);

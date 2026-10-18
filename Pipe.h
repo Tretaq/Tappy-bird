@@ -16,6 +16,7 @@ private:
 public:
   static constexpr float windowHeight = 600.f;
   static constexpr float gap = 150.f;
+  void syncSprite();
   void draw(sf::RenderTarget &target) const;
   void update(float delta);
   bool isOffScreen() const;

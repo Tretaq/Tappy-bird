@@ -8,15 +8,22 @@ Bird::Bird(const std::vector<sf::Texture>& tex): textures(&tex) , sprite(tex[0])
     shape.setPosition(position);
     sprite.setPosition(position);
     sprite.setScale({1.2f,1.2f});
+    sf::Vector2u texSize = (*textures)[0].getSize();
+    sprite.setOrigin({texSize.x / 2.f,texSize.y / 2.f});// set origin to center not top left
+    syncSprite();
+}
 
-
+void Bird::syncSprite() {
+    sprite.setPosition(shape.getPosition() + shape.getSize() / 2.f);
+    float angle = std::clamp(velocityY * tiltFactor, maxUp,maxDown);
+    sprite.setRotation(sf::degrees(angle));
 }
 
 void Bird::animate(float delta) {
     animTimer += delta;
     if (animTimer >= frameTime) {
         animTimer -= frameTime;
-        frame = (frame + 1) % textures->size();
+        frame = (frame + 1) % textures->size(); // this % when it goes to 3 sets it to 0
         sprite.setTexture((*textures)[frame]);
     }
 }
@@ -30,7 +37,7 @@ void Bird::draw(sf::RenderTarget& target) const {
 void Bird::update( float delta) {
     velocityY = velocityY + gravity * delta;
     shape.move(sf::Vector2f(0.f,velocityY * delta));
-    sprite.setPosition(shape.getPosition());
+    syncSprite();
 }
 
 sf::FloatRect Bird::getBounds()const {
@@ -49,6 +56,7 @@ void Bird::reset() {
     frame = 0;
     animTimer = 0.f;
     sprite.setTexture((*textures)[0]);
+    syncSprite();
 }
 
 

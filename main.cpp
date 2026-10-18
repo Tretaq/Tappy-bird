@@ -13,7 +13,6 @@
 #include <vector>
 #include <X11/Xproto.h>
 
-// TO DO y is wrong and need to do smae indent for it
 enum class State { Waiting, Playing, GameOver };
 int main() {
   const int windowWidth = 800;

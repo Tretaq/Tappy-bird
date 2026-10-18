@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Graphics/Rect.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
-#include "SFML/Graphics/RenderTarget.hpp";
+#include <algorithm>
 #include <SFML/Graphics.hpp>
 class Bird {
 private:
@@ -15,10 +15,14 @@ private:
     float animTimer = 0.f;
     std::size_t frame = 0;
     static constexpr float frameTime = 0.1f;
+    static constexpr float tiltFactor = 0.1f;
+    static  constexpr float maxUp = -25.f;
+    static constexpr float maxDown = 70.f;
 
 
 public:
     Bird(const std::vector<sf::Texture>& textures);
+    void syncSprite();
     void animate(float delta);
     void update( float delta);
     void jump();
