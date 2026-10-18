@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

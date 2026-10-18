@@ -1,0 +1,3 @@
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/CMakeFiles/edit_cache.dir
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/CMakeFiles/rebuild_cache.dir

@@ -186,6 +186,7 @@ int main() {
         best = score;
         saveNumber("highscore.txt",best);
       }
+      highest_points.setString("Yours highest score is " + std::to_string(best));
     }
     window.clear();
     window.draw(background);
@@ -197,7 +198,6 @@ int main() {
       window.draw(highest_points);
     }
     if (state == State::GameOver) {
-      best = loadNumber("highscore.txt");
       sf::FloatRect textBounds = pressSpaceText.getLocalBounds();
       pressSpaceText.setOrigin({textBounds.position.x + textBounds.size.x / 2.0f, textBounds.position.y + textBounds.size.y / 2.0f});
       pressSpaceText.setPosition({window.getSize().x / 2.0f, window.getSize().y / 2.0f});

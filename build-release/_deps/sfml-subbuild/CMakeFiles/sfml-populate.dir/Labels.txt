@@ -1,0 +1,14 @@
+# Target labels
+ sfml-populate
+# Source files and their labels
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/CMakeFiles/sfml-populate
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/CMakeFiles/sfml-populate.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test.rule
+/home/treta/frontend/projects/Tappy-bird/build-release/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update.rule
