@@ -19,6 +19,16 @@ int main() {
   const int windowWidth = 800;
   const int windowHeight = Pipe::windowHeight;
   const int gapMargin = 100;
+  std::vector<sf::Texture> bird_vector;
+  bird_vector.reserve(3);
+  for (int i = 1; i <= 3  ; ++i) {
+    sf::Texture tex;
+    if (!tex.loadFromFile("assets/bird_frame_" + std::to_string(i) + ".png")) {
+      return 1;
+    }
+    tex.setSmooth(false);
+    bird_vector.push_back((std::move(tex)));
+  }
   State state = State::Waiting;
   sf::Font font("static/Inter_24pt-Black.ttf");
   sf::Text points(font);
@@ -47,8 +57,10 @@ int main() {
   window.setKeyRepeatEnabled(false);
   const float spawnInterval = 2.f;
   int score = 0;
-  Bird bird(birdTextur);
+  Bird bird(bird_vector);
   sf::Clock clock;
+
+  int birdTextureCounter = 0;
 
   std::vector<Pipe> pipes;
   float bgOffset = 0.f;
@@ -121,9 +133,13 @@ int main() {
         state = State::GameOver;
       }
     }
+    if (state != State::GameOver) {
+      bird.animate(delta);
+    }
 
     points.setString(std::to_string(score));
     background.setTextureRect((sf::IntRect({static_cast<int>(bgOffset),0},{windowWidth,windowHeight})));
+
     window.clear();
     window.draw(background);
     for (const Pipe &pipe : pipes) {

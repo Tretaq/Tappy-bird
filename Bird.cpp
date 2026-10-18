@@ -1,7 +1,7 @@
 #include "SFML/Window/Event.hpp"
 #include <SFML/Graphics.hpp>
 #include "Bird.h"
-Bird::Bird(const sf::Texture& texture): sprite(texture){
+Bird::Bird(const std::vector<sf::Texture>& tex): textures(&tex) , sprite(tex[0]){
 
     shape.setSize(sf::Vector2f(48,36));
     shape.setFillColor(sf::Color::Red);
@@ -11,6 +11,16 @@ Bird::Bird(const sf::Texture& texture): sprite(texture){
 
 
 }
+
+void Bird::animate(float delta) {
+    animTimer += delta;
+    if (animTimer >= frameTime) {
+        animTimer -= frameTime;
+        frame = (frame + 1) % textures->size();
+        sprite.setTexture((*textures)[frame]);
+    }
+}
+
 void Bird::jump() {
     velocityY = jumpStrength;
 }
@@ -36,6 +46,9 @@ void Bird::reset() {
     shape.setPosition(position);
     velocityY = 0;
     sprite.setPosition(shape.getPosition());
+    frame = 0;
+    animTimer = 0.f;
+    sprite.setTexture((*textures)[0]);
 }
 
 

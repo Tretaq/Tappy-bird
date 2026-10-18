@@ -10,12 +10,16 @@ private:
     float velocityY = 0.f;
     sf::RectangleShape shape;
     sf::Vector2f position = {200.f, 300.f};
+    const std::vector<sf::Texture>* textures;
     sf::Sprite sprite;
+    float animTimer = 0.f;
+    std::size_t frame = 0;
+    static constexpr float frameTime = 0.1f;
 
 
 public:
-    Bird(const sf::Texture&);
-
+    Bird(const std::vector<sf::Texture>& textures);
+    void animate(float delta);
     void update( float delta);
     void jump();
     void draw(sf::RenderTarget& target) const;
